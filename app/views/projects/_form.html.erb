@@ -1,7 +1,7 @@
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+    <div class="alert alert-danger">
+      <b><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</b>
 
       <ul>
       <% @project.errors.full_messages.each do |message| %>
@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Add project", class: "btn btn-primary btn-block" %>
+    <%= link_to "Back", :back, class: "btn btn-danger btn-block" %>
   </div>
 <% end %>

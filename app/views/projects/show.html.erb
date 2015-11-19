@@ -1,9 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @project.name %>
-</p>
+  <span class="pull-right">
+    <%= link_to new_project_task_path(@project), class: "btn btn-success btn-sm" do %>
+      <span class="fa fa-plus"></span> New task
+    <% end %>
+    <%= link_to edit_project_path(@project), class: "btn btn-info btn-sm" do %>
+      <span class="fa fa-edit"></span> Edit project
+    <% end %>
+    <%= link_to project_path, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?"} do %>
+      <span class="fa fa-trash-o"></span> Delete project
+    <% end %>
+  </span>
+</h1>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<hr>
+
+<div class="card-columns clearfix">
+  <% @project.tasks.each do |task| %>
+  <div class="card">
+    <div class="card-block">
+      <p class="card-text">
+        <h4>
+          <%= task.name %>
+          <span class="pull-right">
+            <%= link_to project_task_path(@project, task), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?"} do %>
+              <span class="fa fa-trash-o"></span>
+            <% end %>
+            <%= link_to edit_project_task_path(@project, task), class: "btn btn-info btn-xs" do %>
+              <span class="fa fa-edit"></span>
+            <% end %>
+          </span>
+        </h4>
+
+        <hr>
+
+        <ul class="list-group">
+          <% task.users.each do |user| %>
+            <li class="list-group-item"><%= user.email %></li>
+          <% end %>
+        </ul>
+
+      </p>
+    </div>
+  </div>
+  <% end %>
+</div>
