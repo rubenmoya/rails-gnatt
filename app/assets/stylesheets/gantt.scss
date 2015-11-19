@@ -1,8 +1,9 @@
-@import "random-colors";
+$colors: Red, Orange, Gold, Green, Blue, Chartreuse, MediumOrchid, Peru, SteelBlue, SlateBlue, Teal;
 
 .user-chart {
   margin-bottom: 40px;
 }
+
 
 .chart {
   height: 40px;
@@ -27,6 +28,6 @@
 @for $i from 1 through 40 {
   .bar-#{$i} {
     width: 2.5% * $i;
-    background: getRandomColor();
+    background: lighten(nth($colors, random(length($colors))), 20%);
   }
 }

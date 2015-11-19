@@ -1,9 +1,9 @@
 @function randomizeColor(){
   $color: (
     octal: (
-      red: random(120) + 56,
-      green: random(120) + 56,
-      blue: random(120) + 56
+      red: random(120) + 35,
+      green: random(120) + 30,
+      blue: random(120) + 55
     )
   );
   @return $color;
