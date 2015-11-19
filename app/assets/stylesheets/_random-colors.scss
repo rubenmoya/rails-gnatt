@@ -1,0 +1,19 @@
+@function randomizeColor(){
+  $color: (
+    octal: (
+      red: random(120) + 56,
+      green: random(120) + 56,
+      blue: random(120) + 56
+    )
+  );
+  @return $color;
+}
+
+@function color($base, $component) {
+  $color: randomizeColor();
+  @return map-get(map-get($color, $base), $component);
+}
+
+@function getRandomColor() {
+  @return rgb(color(octal, red), color(octal, green), color(octal, blue));
+}

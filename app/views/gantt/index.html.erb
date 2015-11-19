@@ -1,13 +1,10 @@
-<h1>Gnatt chart</h1>
-
 <% @users.each do |user| %>
-  <article>
-    <p><b>User:</b> <%= user.email %></p>
+  <article class="user-chart">
+    <h4><span class="fa fa-user"></span> <%= user.email %></h4>
     <div class="chart">
       <% user.assignments.each do |assignment| %>
         <a href="#" class="bar bar-<%= assignment.hours %>" data-toggle="tooltip" data-placement="top" title="<%= assignment.task.name %> - <%= assignment.hours %> hours"></a>
       <% end %>
-      </div>
     </div>
   </article>
 <% end %>

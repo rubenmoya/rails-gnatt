@@ -1,6 +1,8 @@
-// 1 -> 2.5
+@import "random-colors";
 
-$colors: red, orange, yellow, green, blue;
+.user-chart {
+  margin-bottom: 40px;
+}
 
 .chart {
   height: 40px;
@@ -25,6 +27,6 @@ $colors: red, orange, yellow, green, blue;
 @for $i from 1 through 40 {
   .bar-#{$i} {
     width: 2.5% * $i;
-    background: lighten(nth($colors, random(length($colors))), 20%);
+    background: getRandomColor();
   }
 }
