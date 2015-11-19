@@ -1,7 +1,7 @@
 <%= simple_form_for [@project, @task] do |f| %>
   <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+    <div class="alert alert-danger">
+      <b><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</b>
 
       <ul>
       <% @task.errors.full_messages.each do |message| %>
@@ -15,7 +15,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
   </fieldset>
-  
+
   <hr>
 
   <fieldset class="form-group">
@@ -23,7 +23,7 @@
       <%= render 'assignment_fields', f: assignment %>
     <% end %>
 
-    <%= link_to_add_association 'New user', f, :assignments, class: "btn btn-info btn-block" %>
+    <%= link_to_add_association 'Add user to task', f, :assignments, class: "btn btn-primary-outline btn-block" %>
   </fieldset>
 
   <fieldset class="form-group">

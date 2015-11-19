@@ -11,7 +11,7 @@ class Assignment < ActiveRecord::Base
     user_hours = user.assignments.reduce(0) { |sum, h| sum + h.hours }
 
     if (hours + user_hours) > 40
-      errors.add(:max_hours, "the user hours can't be greater than 40")
+      errors.add(:hours_per_user, "can't be more than 40")
     end
   end
 end
