@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118150758) do
+ActiveRecord::Schema.define(version: 20151118161758) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "task_id"
+    t.integer "hours"
+  end
+
+  add_index "assignments", ["task_id"], name: "index_assignments_on_task_id"
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

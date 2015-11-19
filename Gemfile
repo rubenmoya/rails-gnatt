@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'simple_form'
+gem "cocoon"
 
 group :development, :test do
   gem 'byebug'
