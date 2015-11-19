@@ -1,3 +1,12 @@
-<%= f.association :user, label_method: :email, value_method: :id, prompt: "Select a user" %>
-<%= f.input :hours %>
-<%= link_to_remove_association "Remove", f, class: "form-button btn btn-default" %>
+<div class="nested-fields form-group">
+  <div class="form-group">
+    <%= f.association :user, label_method: :email, value_method: :id, prompt: "Select a user", input_html: {class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hours %>
+    <%= f.text_field :hours, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= link_to_remove_association "Remove", f, class: "btn btn-danger" %>
+  </div>
+</div>

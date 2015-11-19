@@ -20,26 +20,10 @@
   <div class="card">
     <div class="card-block">
       <p class="card-text">
-        <h4>
-          <%= task.name %>
-          <span class="pull-right">
-            <%= link_to project_task_path(@project, task), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?"} do %>
-              <span class="fa fa-trash-o"></span>
-            <% end %>
-            <%= link_to edit_project_task_path(@project, task), class: "btn btn-info btn-xs" do %>
-              <span class="fa fa-edit"></span>
-            <% end %>
-          </span>
-        </h4>
-
-        <hr>
-
-        <ul class="list-group">
-          <% task.users.each do |user| %>
-            <li class="list-group-item"><%= user.email %></li>
-          <% end %>
-        </ul>
-
+        <%= link_to task.name, project_task_path(@project, task) %>
+        <span class="text-muted pull-right">
+          <span class="fa fa-user"></span> <%= task.users.count %>
+        </span>
       </p>
     </div>
   </div>

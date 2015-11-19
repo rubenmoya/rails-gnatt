@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @task.name %>
-</p>
+  <span class="pull-right">
+    <%= link_to edit_project_task_path(@project, @task), class: "btn btn-info btn-sm" do %>
+      <span class="fa fa-edit"></span> Edit task
+    <% end %>
+    <%= link_to project_task_path(@project, @task), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?"} do %>
+      <span class="fa fa-trash-o"></span> Delete task
+    <% end %>
+  </span>
+</h1>
 
-<p>
-  <strong>Project:</strong>
-  <%= @task.project.name %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
-<%= link_to 'Back', project_tasks_path %>
+<div class="card-columns clearfix">
+  <% @task.assignments.each do |assignment| %>
+  <div class="card">
+    <div class="card-block">
+      <p class="card-text">
+        <span class="fa fa-user"></span> <%= assignment.user.email %>
+        <span class="pull-right"><span class="fa fa-clock-o"></span> <%= assignment.hours %> Hours</span>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</div>

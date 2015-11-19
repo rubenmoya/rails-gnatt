@@ -13,17 +13,18 @@
 
   <fieldset class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </fieldset>
+  <fieldset class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+  </fieldset>
+  <hr>
 
   <fieldset class="form-group">
     <%= f.simple_fields_for :assignments do |assignment| %>
       <%= render 'assignment_fields', f: assignment %>
     <% end %>
-    
-    <%= link_to_add_association 'Add Assignment', f, :assignments, class: "btn btn-default add-button" %>
+
+    <%= link_to_add_association 'New user', f, :assignments, class: "btn btn-info btn-block" %>
   </fieldset>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
