@@ -11,8 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require tether
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+
+var ready = function () {
+  $('[data-toggle="tooltip"]').tooltip()
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

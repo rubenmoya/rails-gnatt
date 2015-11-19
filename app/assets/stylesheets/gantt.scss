@@ -1,3 +1,30 @@
-// Place all the styles related to the gantt controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 1 -> 2.5
+
+$colors: red, orange, yellow, green, blue;
+
+.chart {
+  height: 40px;
+  background-color: #F3F3F3;
+}
+
+.bar {
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  color: #000;
+  border: 1px solid #E0E0E0;
+  border-right: none;
+  cursor: pointer;
+}
+
+.bar:last-child {
+  border-right: 1px solid #E0E0E0;
+}
+
+@for $i from 1 through 40 {
+  .bar-#{$i} {
+    width: 2.5% * $i;
+    background: lighten(nth($colors, random(length($colors))), 20%);
+  }
+}

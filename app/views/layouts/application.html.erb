@@ -2,24 +2,28 @@
 <html>
 <head>
   <title>GanttChart</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name %> fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        <span class="sr-only">Close</span>
-      </button>
-      <%= content_tag(:div, msg) %>
-    </div>
-  <% end %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %> fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <%= content_tag(:div, msg) %>
+        </div>
+      <% end %>
 
-  <%= yield %>
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 </body>
