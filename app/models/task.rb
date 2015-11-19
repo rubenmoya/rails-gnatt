@@ -1,4 +1,8 @@
 class Task < ActiveRecord::Base
+
+  validates :name, presence: true
+  validates :name, length: { maximum: 15 }
+
   belongs_to :project
 
   has_many :assignments
