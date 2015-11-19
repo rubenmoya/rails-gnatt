@@ -7,8 +7,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def self.user_collection task, uid
+    assignments = task.assignments.collect{|e| e.user_id }
 
-  def self.not_in_task task, uid
-    where("id not in (?)", task.assignments.collect{|e| e.user_id }.select{|i| i != uid})
+
+    if uid.nil?
+      if assignments.empty?
+        all
+      else
+        where("id not in (?)", assignments)
+      end
+    else
+      where("id not in (?)", assignments).concat([find(uid)])
+    end
   end
 end
