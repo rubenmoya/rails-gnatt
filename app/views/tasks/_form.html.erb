@@ -15,9 +15,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
   </fieldset>
-  <fieldset class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
-  </fieldset>
+  
   <hr>
 
   <fieldset class="form-group">
@@ -26,5 +24,9 @@
     <% end %>
 
     <%= link_to_add_association 'New user', f, :assignments, class: "btn btn-info btn-block" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
   </fieldset>
 <% end %>

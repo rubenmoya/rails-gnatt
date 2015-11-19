@@ -1,6 +1,6 @@
 <div class="nested-fields form-group">
   <div class="form-group">
-    <%= f.association :user, label_method: :email, value_method: :id, prompt: "Select a user", input_html: {class: "form-control" } %>
+    <%= f.association :user, collection: User.not_in_task(@task, f.object.user_id), label_method: :email, value_method: :id, prompt: "Select a user", input_html: {class: "form-control" } %>
   </div>
   <div class="form-group">
     <%= f.label :hours %>
