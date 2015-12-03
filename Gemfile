@@ -16,6 +16,8 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'simple_form'
 gem "cocoon"
 
+gem 'pg', on: :production
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
